@@ -698,6 +698,115 @@ CREATE TABLE condition_era
 
 
 
+/********
+Genomic Table
+*********/
+
+CREATE TABLE genomic_copy_number_variation (
+  "cnv_data_id"       int8  NOT NULL,
+  "update_datetime"   DATE,
+  "panel"             varchar(15),
+  "cli_rrpt_id"       varchar(15),
+  "mut_type"          varchar(64),
+  "smp_id"            varchar(15),
+  "prj_id"            varchar(15),
+  "sec_id"            varchar(5),
+  "type"              varchar(3),
+  "chromosome"        varchar(5),
+  "gene_concept_id"   int4,
+  "start"             int8,
+  "end"               int8,
+  "log2"              float4,
+  "cn"                int4,
+  "alteration"        varchar(15),
+  "alteration_db"     varchar(15),
+  "sigflag"           varchar(3),
+  "hrd"               varchar(3),
+  "cnvtype"           varchar(3),
+  "knownflag"         varchar(3),
+  "specimen_id"       int4
+);
+
+CREATE TABLE genomic_single_nucleotide_variants (
+  "snv_data_id"       int8 NOT NULL,
+  "update_datetime"   DATE,
+  "panel"             varchar(15),
+  "cli_rrpt_id"       varchar(15),
+  "mut_type"          varchar(64),
+  "smp_id"            varchar(15),
+  "prj_id"            varchar(15),
+  "sec_id"            varchar(15),
+  "gene"              varchar(15),
+  "ens_id"            varchar(15),
+  "mutation_status"   varchar(10),
+  "chromosome"        varchar(10),
+  "gene_concept_id"   int4,
+  "start"             int8,
+  "end"               int8,
+  "ref"               varchar(50),
+  "var"               varchar(50),
+  "variant_class"     varchar(50),
+  "variant_type"      varchar(50),
+  "hgvsc"             varchar(50),
+  "hgvsp"             varchar(50),
+  "hgvsp_db"          varchar(50),
+  "dbsnp"             varchar(15),
+  "t_total_depth"     int8,
+  "t_ref_depth"       int8,
+  "t_var_depth"       int8,
+  "n_total_depth"     int8,
+  "n_ref_depth"       int8,
+  "n_var_depth"       int8,
+  "allele_freq"       float4,
+  "strand"            varchar(10),
+  "eoxn"              varchar(15),
+  "intron"            int8,
+  "sift"              varchar(20),
+  "polyphen"          varchar(30),
+  "domain"            text,
+  "hrd"               varchar(3),
+  "mmr"               varchar(3),
+  "zygosity"          varchar(15),
+  "transcriptrank"    int4,
+  "diagnosis"         varchar(30),
+  "drug"              varchar(50),
+  "drugable"          varchar(3),
+  "whitelist"         varchar(3),
+  "specimen_id"       int4
+);
+
+
+CREATE TABLE genomic_structural_variation (
+  "sv_data_id"      int8 NOT NULL,
+  "panel"           varchar(15),
+  "update_datetime" date,
+  "cli_rrpt_id"     varchar(15),
+  "mut_type"        varchar(64),
+  "smp_id"          varchar(15),
+  "prj_id"          varchar(15),
+  "sec_id"          varchar(5),
+  "breakpoint"      varchar(64),
+  "cigar"           varchar(20),
+  "mismatches"      varchar(10),
+  "strands"         varchar(10),
+  "rep_overlap"     varchar(32),
+  "sv_type"         varchar(13),
+  "read_count"      varchar(10),
+  "gene_concept_id" int4,
+  "nkmers"          int8,
+  "disc_read_count" int8,
+  "breakpoint_cov"  varchar(15),
+  "contig_id"       varchar(32),
+  "contig_seq"      text,
+  "type"            varchar(13),
+  "alteration"      varchar(6),
+  "alteration_db"   varchar(6),
+  "transtype"       varchar(5),
+  "rearrangement_target" varchar(3),
+  "specimen_id" int4
+);
+
+
 
 
 

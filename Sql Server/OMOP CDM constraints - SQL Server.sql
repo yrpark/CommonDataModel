@@ -178,6 +178,14 @@ ALTER TABLE condition_era ADD CONSTRAINT xpk_condition_era PRIMARY KEY NONCLUSTE
 
 
 
+/***********************
+Genomic Table
+************************/
+ALTER TABLE genomic_structural_variation ADD PRIMARY KEY (sv_data_id);
+ALTER TABLE genomic_single_nucleotide_variants ADD PRIMARY KEY (snv_data_id);
+ALTER TABLE genomic_copy_number_variation ADD PRIMARY KEY (cnv_data_id);
+
+
 
 
 
@@ -527,3 +535,18 @@ ALTER TABLE condition_era ADD CONSTRAINT fpk_condition_era_person FOREIGN KEY (p
 
 ALTER TABLE condition_era ADD CONSTRAINT fpk_condition_era_concept FOREIGN KEY (condition_concept_id)  REFERENCES concept (concept_id);
 
+
+
+
+/*********************
+Genomic Table FK
+*********************/
+
+ALTER TABLE genomic_structural_variation ADD CONSTRAINT fpk_genomic_structural_variation_specimen FOREIGN KEY (specimen_id) REFERENCES specimen (specimen_id);
+ALTER TABLE genomic_structural_variation ADD CONSTRAINT fpk_genomic_structural_variation_gene_concept FOREIGN KEY (gene_concept_id) REFERENCES concept (concept_id);
+
+ALTER TABLE genomic_single_nucleotide_variants ADD CONSTRAINT fpk_genomic_single_nucleotide_variants_specimen FOREIGN KEY (specimen_id) REFERENCES specimen (specimen_id);
+ALTER TABLE genomic_single_nucleotide_variants ADD CONSTRAINT fpk_genomic_single_nucieotide_variatits_gene_concept FOREIGN KEY (gene_concept_id) REFERENCES concept (concept_id);
+
+ALTER TABLE genomic_copy_number_variation ADD CONSTRAINT fpk_genomic_copy_number_variation_specimen FOREIGN KEY (specimen_id) REFERENCES specimen (specimen_id);
+ALTER TABLE genomic_copy_number_variation ADD CONSTRAINT fpk_genomic_copy_number_variation_gene_concept FOREIGN KEY (gene_concept_id) REFERENCES concept (concept_id);
